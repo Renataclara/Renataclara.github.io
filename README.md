@@ -1,1 +1,3 @@
-please be nice yoyooy
+future plans:
+- make a marketplace website
+- make website as beautiful as Stripe's
