@@ -1,0 +1,62 @@
+var Object1 =
+    {
+       quest:'What is your dream?'
+    }
+var Object2 =
+    {
+       quest:'What is your biggest fear?'
+    }
+var Object3 =
+    {
+       quest:'What is life for you?'
+    }
+
+var arr = [Object1, Object2, Object3];
+var q1=true;
+var qst1=0;
+var qst2=0;
+var qst3=0;
+var alt = 0;
+function question(){
+for(i=0; i<arr.length; i++)
+{
+  q1=confirm("Answer truthfully, please");
+  qst1=prompt(arr[0].quest);
+  qst2=prompt(arr[1].quest);
+  qst3=prompt(arr[2].quest);
+  if(q1==true)
+  {
+    q1;
+  }
+
+  if(qst1!=0 && qst1!='')
+    {
+      qst1;
+      console.log(qst1);
+    }
+  else
+    {
+      console.log("Cannot be empty");
+    }
+  if(qst2!=0 && qst2!='')
+    {
+      qst2;
+      console.log(qst2);
+    }
+  else
+    {
+      console.log("You didn't answer");
+    }
+  if(qst3!=0 && qst3!='')
+    {
+      qst3;
+      console.log(qst3);
+    }
+  else
+    {
+      console.log("Answer it now");
+    }
+  return;
+}
+}
+question();
