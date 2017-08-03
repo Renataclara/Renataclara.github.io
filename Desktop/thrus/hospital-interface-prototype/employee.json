@@ -1,0 +1,30 @@
+[
+  {
+    "id": "001",
+    "name": "Jackson",
+    "position": "admin",
+    "username": "JacksonSuper",
+    "password": "1"
+  },
+  {
+    "id": "002",
+    "name": "Jessica",
+    "position": "doctor",
+    "username": "JessicaSuper",
+    "password": "1"
+  },
+  {
+    "id": "003",
+    "name": "Jordan",
+    "position": "receptionist",
+    "username": "JordanSuper",
+    "password": "1"
+  },
+  {
+    "id": "004",
+    "name": "Raynold",
+    "position": "officeboy",
+    "username": "RaynoldSuper",
+    "password": "1"
+  }
+]

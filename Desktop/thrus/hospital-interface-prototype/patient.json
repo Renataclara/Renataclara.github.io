@@ -1,0 +1,22 @@
+[
+  {
+    "id": "001",
+    "name": "Jackson",
+    "record": [
+      {
+        "record_id": 1,
+        "record_name": "Sakit gigi"
+      }
+    ]
+  },
+  {
+    "id": "002",
+    "name": "Sukmo",
+    "record": [
+      {
+        "record_id": 1,
+        "record_name": "Sakit pinggang"
+      }
+    ]
+  }
+]

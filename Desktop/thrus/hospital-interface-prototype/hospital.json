@@ -1,0 +1,16 @@
+[
+  {
+    "id": "001",
+    "name": "Satya Negeri",
+    "employees": [],
+    "patients": [],
+    "location": "Jalan Kuningan Wangi rt 20"
+  },
+  {
+    "id": "002",
+    "name": "Medistra",
+    "employees": [],
+    "patients": [],
+    "location": "Jalan Kemayoran Jaya"
+  }
+]
