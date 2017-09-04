@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <!-- <div id="app"> -->
+
+    <!-- </div> -->
+
+      <div id='app'>
+      <jumbotron v-for='student in students'
+      :siswa=student
+
+      :key=student.id></jumbotron>
+
+
+      </div>
+    <!-- v-for v-if v-show -->
+
+
+    <!-- <input type="text"  v-model="message"></input> -->
+
+    <script src='./index.js'> </script>
+  </body>
+</html>
