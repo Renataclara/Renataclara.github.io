@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-
-    <h1>Article</h1>
-    <Article />
+    <Navbar></Navbar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import Article from '@/components/Article'
+import Navbar from '@/components/Navbar'
 export default {
-  name: 'app',
-  components: {
-    Article
-  }
+  components: {Navbar}
+}
   // ,
   // methods: {
   //
@@ -29,5 +26,5 @@ export default {
   //     // saldoRekening: 100000
   //   }
   // }
-}
+// }
 </script>

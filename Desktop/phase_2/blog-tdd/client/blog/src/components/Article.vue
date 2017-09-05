@@ -20,48 +20,29 @@
   <div class="col-sm-3" id="spy" >
     <ul class="nav nav-pills flex-column" v-for='(article , idx) in articles'>
 
-        <li class="nav-item" v-if='idx == 0'><a class="nav-link active" :href="`#scroll${idx}`">{{article.title}}</a></li>
+
+<!-- <router-link v-if='idx == 0' class="nav-link active" :to="`/writings/${article._id}`" :href="`#scroll${idx}`"> {{article.title}} {{ $route.params.id }}}}</router-link> -->
+<router-link v-if='article.tag === "blog"' :class="{'active': $route.params.id == article._id}" class="nav-link" :to="`/writings/${article._id}`" :href="`#scroll${idx}`"> {{article.title}} </router-link>
+<router-link v-if='article.tag === "book"' :class="{'active': $route.params.id == article._id}" class="nav-link" :to="`/books/${article._id}`" :href="`#scroll${idx}`"> {{article.title}} </router-link>
 
 
-      <li class="nav-item" v-if='idx >= 1'><a class="nav-link" :href="`#scroll${idx}`">{{article.title}}</a></li>
 
     </ul>
+
   </div>
   <div class="col-sm-9 scrollspy-example" data-spy="scroll" data-target="#spy" >
-      <div id="exampleAccordion" data-children=".item">
+    <div id="exampleAccordion" data-children=".item">
 
-        <div v-for='(article , idx) in articles'>
-        <div :id="`scroll${idx}`">
-        <div class="item">
-          <a data-toggle="collapse" data-parent="#exampleAccordion" :href="`#sc${idx}`" aria-expanded="false" aria-controls="exampleAccordion2">
-            <h2> {{article.title}} </h2>
-            {{article.description}}
-          </a>
-          <div :id="`sc${idx}`" v-if='idx == 0' class="collapse show" role="tabpanel">
-            <p class="mb-3">
-                {{article.body}}
-            </p>
-          </div>
-
-          <div :id="`sc${idx}`" v-if='idx > 0' class="collapse" role="tabpanel">
-            <p class="mb-3">
-                {{article.body}}
-            </p>
-          </div>
-        </div>
-      </div>
-
+      <router-view></router-view>
 
     </div>
   </div>
-    </div>
-  </div>
-
+</div>
 
 </template>
 
 <script>
-var axios = require('axios')
+// var axios = require('axios')
 export default {
   // props: ['perarticle'],
   data () {
@@ -72,20 +53,38 @@ export default {
   methods: {
     getArticles () {
       console.log('halo sblm axios')
-      var self = this
-      axios.get('http://localhost:3000')
-      .then((data) => {
-        console.log(data.data)
-        self.articles = data.data
-        console.log(self.articles, 'this is self articles')
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+      // var self = this
+      if (this.$route.fullPath === `/writings/${this.$route.params.id}` || this.$route.fullPath === `/writings`) {
+        this.$http.get('/blog')
+        .then((data) => {
+          this.articles = data.data
+          console.log(this.articles, 'this is self blog articles')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      }
+      if (this.$route.fullPath === `/books/${this.$route.params.id}` || this.$route.fullPath === `/books`) {
+        this.$http.get('/book')
+        .then((data) => {
+          this.articles = data.data
+          console.log(this.articles, 'this is self book articles')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      }
+      // axios.get('http://localhost:3000')
     }
   },
   mounted () {
     this.getArticles()
+    console.log(this.$route.fullPath, 'ini fullPath')
+  },
+  watch: {
+    '$route' (to, from) {
+      this.getArticles()
+    }
   }
 }
 </script>
